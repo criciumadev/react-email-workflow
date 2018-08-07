@@ -1,14 +1,11 @@
-'use strict'
+"use strict";
 
-const moment = require('moment')
+const moment = require("moment");
 
-function button ({
-  type = 'primary',
-  align = 'center',
-  url = 'http://www.shellypalmer.com',
-  title = 'Click Here' }) {
-  return (
-    `<table class="btn btn-${type}">
+moment.locale("pt-BR");
+
+function button({ type = "primary", align = "center", url = "https://criciumadev.com.br/", title = "Clique Aqui" }) {
+  return `<table class="btn btn-${type}">
       <tr>
         <td align="${align}">
           <table>
@@ -20,39 +17,42 @@ function button ({
           </table>
         </td>
       </tr>
-    </table>`
-  )
+    </table>`;
 }
 
-const renderElements = (elements) => {
-  return elements.map((story, i) => {
-    switch (story.kind) {
-      case 'url':
-        const cta = story.video ? 'Watch Now' : 'Read More'
-        return (
-          `<h3><a class="story-title" href="${story.url}">${story.title}</a></h3>
+const renderElements = elements => {
+  return elements
+    .map((story, i) => {
+      switch (story.kind) {
+        case "url":
+          const cta = story.video ? "Assitir" : "Saiba mais";
+          return `<h3><a class="story-title" href="${story.url}">${story.title}</a></h3>
             <p class="story-excerpt"><a class="story-excerpt-link" href="${story.url}">${story.content}</a></p>
-            <p class="story-author"><a class="story-author-link" href="${story.url}">${cta}<span class="more"> · ${story.author}</span></a></p>`
-        )
-      case 'text':
-        return `<p class="story-excerpt story-excerpt-link">${story.content}</p>`
-      case 'html':
-        return `${story.content}`
-      case 'heading':
-        return `<h3>${story.content}</h3>`
-      case 'button':
-        return button(story)
-      case 'image':
-        return story.url
-        ? `<a href="${story.url}"><img class="bodyImage" src="${story.src}" alt="" width="${story.width}" height="${story.height}"></a>`
-        : `<img class="bodyImage" src="${story.src}" alt="" width="${story.width}" height="${story.height}">`
-      default:
-        return ' '
-    }
-  }).join(' ')
-}
+            <p class="story-author"><a class="story-author-link" href="${story.url}">${cta}<span class="more"> · ${
+            story.author
+          }</span></a></p>`;
+        case "text":
+          return `<p class="story-excerpt story-excerpt-link">${story.content}</p>`;
+        case "html":
+          return `${story.content}`;
+        case "heading":
+          return `<h3>${story.content}</h3>`;
+        case "button":
+          return button(story);
+        case "image":
+          return story.url
+            ? `<a href="${story.url}"><img class="bodyImage" src="${story.src}" alt="" width="${story.width}" height="${
+                story.height
+              }"></a>`
+            : `<img class="bodyImage" src="${story.src}" alt="" width="${story.width}" height="${story.height}">`;
+        default:
+          return " ";
+      }
+    })
+    .join(" ");
+};
 
-function createHTML (data, cb) {
+function createHTML(data, cb) {
   const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -235,15 +235,14 @@ function createHTML (data, cb) {
       color: #595f6c;
     }
     .logo {
-      color: #141823;
-      font-size: 38px;
-      letter-spacing: -0.03em;
-      text-decoration: none;
-      font-weight: bold;
-      display: block;
-      margin-top: 24px;
-      margin-bottom: 6px;
-      line-height: 1;
+      display: inline-block;
+      width: 272px;
+      margin: 12px auto;
+    }
+    .logo > img {
+      display: inline-block;
+      border: 0;
+      width: 100%;
     }
     .tagline {
       display: block;
@@ -425,9 +424,11 @@ function createHTML (data, cb) {
                       <table cellpadding="0" cellspacing="0" border="0" align="center">
                         <tr>
                           <td width="498" class="container" align="center">
-                            <h1><a class="logo" href="http://www.shellypalmer.com">ShellyPalmer</a></h1>
-                            <p class="tagline">Strategic Advisors</p>
-                            <p class="date">${moment(data.meta.date, moment.ISO_8601).format('dddd, MMMM D, YYYY')}</p>
+                            <h1><a class="logo" href="https://criciumadev.com.br/">
+                              <img src="https://criciumadev.com.br/assets/images/logo-criciuma-dev-dark.svg" alt="Criciúma DEV" />
+                            </a></h1>
+                            <p class="tagline">Comunidade de desenvolvedores do Sul de Santa Catarina</p>
+                            <p class="date">${moment(data.meta.date, moment.ISO_8601).format("dddd, MMMM D, YYYY")}</p>
                           </td>
                         </tr>
                       </table>
@@ -444,7 +445,7 @@ function createHTML (data, cb) {
                           </td>
                         </tr>
                       </table>
-   
+
                   </td>
                 </tr>
               </tbody>
@@ -456,8 +457,8 @@ function createHTML (data, cb) {
     <table>
     </table>
   </body>
-  </html>`
-  cb(html)
+  </html>`;
+  cb(html);
 }
 
-module.exports = createHTML
+module.exports = createHTML;

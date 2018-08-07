@@ -1,41 +1,41 @@
 export const url = {
-  kind: 'url',
-  title: '',
-  url: '',
-  content: '',
-  author: ''
-}
+  kind: "url",
+  title: "",
+  url: "",
+  content: "",
+  author: ""
+};
 
 export const html = {
-  kind: 'html',
-  content: ''
-}
+  kind: "html",
+  content: ""
+};
 
 export const text = {
-  kind: 'text',
-  content: ''
-}
+  kind: "text",
+  content: ""
+};
 
 export const heading = {
-  kind: 'heading',
-  content: ''
-}
+  kind: "heading",
+  content: ""
+};
 
 export const hr = {
-  kind: 'hr',
-  size: ''
-}
+  kind: "hr",
+  size: ""
+};
 
 export const button = {
-  url: '',
-  style: '',
-  align: ''
-}
+  url: "",
+  style: "",
+  align: ""
+};
 
 export const image = {
-  kind: 'image',
-  url: '',
-  data: '',
-  width: '',
-  height: ''
-}
+  kind: "image",
+  url: "",
+  data: "",
+  width: "",
+  height: ""
+};

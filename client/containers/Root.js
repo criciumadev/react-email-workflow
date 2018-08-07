@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react'
-import { Provider } from 'react-redux'
-import App from './App'
+import React, { PropTypes } from "react";
+import { Provider } from "react-redux";
+import App from "./App";
 
 /**
  * Root is exported for conditional usage index.js.
@@ -11,10 +11,10 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <App />
   </Provider>
-)
+);
 
 Root.propTypes = {
-  store: PropTypes.object.isRequired
-}
+  store: PropTypes.object.isRequired,
+};
 
-export default Root
+export default Root;

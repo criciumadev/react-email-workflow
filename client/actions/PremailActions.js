@@ -3,19 +3,20 @@ import {
   PREMAIL_REQUEST,
   PREMAIL_SUCCESS,
   PREMAIL_FAILURE
-} from '../constants/ActionTypes'
+} from "../constants/ActionTypes";
 
-export function premailCopy () {
+export function premailCopy() {
   return {
     type: PREMAIL_COPY
-  }
+  };
 }
 
-export function premail () {
+export function premail() {
   return (dispatch, getState, { axios }) => {
-    dispatch({ type: PREMAIL_REQUEST })
-    const { subject, preheader, date, meta, elements } = getState()
-    return axios.post('/api/v0/premail', { subject, preheader, date, meta, elements })
+    dispatch({ type: PREMAIL_REQUEST });
+    const { subject, preheader, date, meta, elements } = getState();
+    return axios
+      .post("/api/v0/premail", { subject, preheader, date, meta, elements })
       .then(res => {
         dispatch({
           type: PREMAIL_SUCCESS,
@@ -23,15 +24,18 @@ export function premail () {
           meta: {
             lastFetched: Date.now()
           }
-        })
+        });
       })
       .catch(error => {
-        console.error(`Error in reducer that handles ${PREMAIL_SUCCESS}: `, error)
+        console.error(
+          `Error in reducer that handles ${PREMAIL_SUCCESS}: `,
+          error
+        );
         dispatch({
           type: PREMAIL_FAILURE,
           payload: error,
           error: true
-        })
-      })
-  }
+        });
+      });
+  };
 }

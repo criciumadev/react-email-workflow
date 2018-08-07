@@ -7,11 +7,8 @@
     "coverage": "babel-node node_modules/isparta/bin/isparta cover --report lcov node_modules/mocha/bin/_mocha -- --reporter dot",
     "build": "npm run clean && webpack --config ./tools/webpack.prod",
     "clean": "rm -rf public/assets",
-    "prestart": "npm run build",
-    "start": "node server.js",
-    "test": "mocha --compilers js:babel-core/register --recursive",
-    "extract": "node services/extract",
-    "premail": "node services/premail"
+    "start": "NODE_ENV=development node server.js",
+    "test": "mocha --compilers js:babel-core/register --recursive"
   },
   "repository": {
     "type": "git",
@@ -54,7 +51,6 @@
     "express": "4.14.0",
     "file-loader": "^0.9.0",
     "helmet": "2.1.2",
-    "jackrabbit": "4.3.0",
     "json-loader": "^0.5.4",
     "jsxstyle": "0.0.22",
     "juice": "^3.0.1",
@@ -84,16 +80,6 @@
     "isparta": "4.0.0",
     "mocha": "3.0.2",
     "redbox-react": "^1.2.9",
-    "standard": "^8.0.0",
-    "standard-format": "^2.2.1",
-    "standard-loader": "^5.0.0",
-    "webpack-dev-middleware": "^1.6.1",
-    "webpack-hot-middleware": "^2.10.0"
-  },
-  "engines": {
-    "node": "6.9.5"
-  },
-  "standard": {
-    "parser": "babel-eslint"
+    "webpack-dev-middleware": "^1.6.1"
   }
 }
