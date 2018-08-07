@@ -7,7 +7,7 @@
     "coverage": "babel-node node_modules/isparta/bin/isparta cover --report lcov node_modules/mocha/bin/_mocha -- --reporter dot",
     "build": "npm run clean && webpack --config ./tools/webpack.prod",
     "clean": "rm -rf public/assets",
-    "start": "NODE_ENV=development node server.js",
+    "start": "node server.js",
     "test": "mocha --compilers js:babel-core/register --recursive"
   },
   "repository": {

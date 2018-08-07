@@ -42,7 +42,6 @@ npm install
 Enter the following command in your terminal:
 
 ```bash
-brew services start rabbitmq
 heroku local -f Procfile.local
 ```
 
