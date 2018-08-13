@@ -197,7 +197,7 @@ function createHTML(data, cb) {
                                                                 <tbody>
                                                                     <tr>
                                                                         <td align="center">
-                                                                            <h2 style="margin:0!important;font-family:'Open Sans',arial,sans-serif!important;font-size:28px!important;line-height:38px!important;font-weight:200!important;color:#252b33!important">${data.meta.subject}</h2>
+                                                                            <h2 style="margin:0!important;font-family:'Open Sans',arial,sans-serif!important;font-size:28px!important;line-height:38px!important;font-weight:200!important;color:#252b33!important">${data.meta.preheader}</h2>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -210,10 +210,10 @@ function createHTML(data, cb) {
 
                                                     <tr>
                                                         <td align="center">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="85%">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="90%">
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td align="center" style="font-family:'Open Sans',arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:400!important;color:#7e8890!important">${data.meta.preheader}</td>
+                                                                        <td align="center" style="font-family:'Open Sans',arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:400!important;color:#7e8890!important">${data.meta.subject}</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td align="center" style="font-family:'Open Sans',arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:400!important;color:#7e8890!important">Sugira conteúdo usando nosso <a style="text-decoration: none;font-family:'Open Sans',arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:400!important;color:#1591FF!important" href="https://slack.criciumadev.com.br" target="_blank">Slack no channel #newsletter</a> :)</td>
