@@ -193,7 +193,7 @@ function createHTML(data, cb) {
 
                                                     <tr>
                                                         <td align="center">
-                                                            <table width="85%">
+                                                            <table width="90%">
                                                                 <tbody>
                                                                     <tr>
                                                                         <td align="center">
@@ -214,6 +214,8 @@ function createHTML(data, cb) {
                                                                 <tbody>
                                                                     <tr>
                                                                         <td align="center" style="font-family:'Open Sans',arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:400!important;color:#7e8890!important">${data.meta.preheader}</td>
+                                                                    </tr>
+                                                                    <tr>
                                                                         <td align="center" style="font-family:'Open Sans',arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:400!important;color:#7e8890!important">Sugira conteúdo usando nosso <a style="text-decoration: none;font-family:'Open Sans',arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:400!important;color:#1591FF!important" href="https://slack.criciumadev.com.br" target="_blank">Slack no channel #newsletter</a> :)</td>
                                                                     </tr>
                                                                 </tbody>
