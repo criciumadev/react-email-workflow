@@ -19,7 +19,7 @@ class Meta extends Component {
       >
         <Block width="100%" marginBottom=".5rem">
           <Input
-            placeholder="Enter the subject line...(keep it short!)"
+            placeholder="Newsletter do Criciúma Dev / Edição #1"
             value={metaData.subject}
             onChange={e => meta({ subject: e.target.value })}
             style={{
@@ -33,7 +33,7 @@ class Meta extends Component {
           <Input
             rows={2}
             onChange={e => meta({ preheader: e.target.value })}
-            placeholder="Preview text"
+            placeholder="Guia prático de expressões regulares, Big Data Experience e mais..."
             value={metaData.preheader}
             style={{
               width: "100%",

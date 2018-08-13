@@ -26,11 +26,86 @@ const renderElements = elements => {
       switch (story.kind) {
         case "url":
           const cta = story.video ? "Assitir" : "Saiba mais";
-          return `<h3><a class="story-title" href="${story.url}">${story.title}</a></h3>
-            <p class="story-excerpt"><a class="story-excerpt-link" href="${story.url}">${story.content}</a></p>
-            <p class="story-author"><a class="story-author-link" href="${story.url}">${cta}<span class="more"> · ${
-            story.author
-          }</span></a></p>`;
+          return `<tr>
+              <td align="center" valign="top">
+                  <table width="580" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" valign="top" style="overflow:hidden!important;border-radius:3px">
+                      <tbody>
+                          <!-- <tr>
+                              <td>
+                                  <a href="" target="_blank">
+                                      <img src="" width="580" style="border:0;max-width:100%!important">
+                                  </a>
+                              </td>
+                          </tr> -->
+                          <tr height="72">
+                              <td>&nbsp;</td>
+                          </tr>
+
+                          <tr>
+                              <td align="center">
+                                  <table width="85%">
+                                      <tbody>
+                                          <tr>
+                                              <td align="center">
+                                                  <h2>
+                                                      <a style="margin:0!important;font-family:'Open Sans',arial,sans-serif!important;font-size:28px!important;line-height:38px!important;font-weight:200!important;color:#252b33!important;text-decoration: none;" href="${story.url}" target="_blank">${story.title}</a>
+                                                  </h2>
+                                              </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </td>
+                          </tr>
+                          <tr height="25">
+                              <td>&nbsp;</td>
+                          </tr>
+
+                          <tr>
+                              <td align="center">
+                                  <table border="0" cellpadding="0" cellspacing="0" width="78%">
+                                      <tbody>
+                                          <tr>
+                                              <td align="center" style="font-family:'Open Sans',arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:400!important;color:#7e8890!important">
+                                                <a style="font-family:'Open Sans',arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:400!important;color:#7e8890!important; text-decoration: none;" href="${story.url}" target="_blank">
+                                                  ${story.content}
+                                                  <br>
+                                                  <i style="font-size: 13px;">Indicado por ${story.author}.</i>
+                                                </a>
+                                              </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </td>
+                          </tr>
+                          <tr height="36">
+                              <td>&nbsp;</td>
+                          </tr>
+
+                          <tr>
+                              <td align="center" valign="top">
+                                  <table border="0" cellspacing="0" cellpadding="0">
+                                      <tbody>
+                                          <tr>
+                                              <td align="center" valign="top">
+                                                  <a href="${story.url}" style="background-color:#1591FF;padding:14px 28px 14px 28px;border-radius:3px;line-height:18px!important;letter-spacing:0.125em;text-transform:uppercase;font-size:13px;font-family:'Open Sans',Arial,sans-serif;font-weight:400;color:#ffffff;text-decoration:none;display:inline-block;line-height:18px!important" target="_blank" >${cta}</a>
+                                              </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </td>
+                          </tr>
+
+                          <tr height="72">
+                              <td>&nbsp;</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </td>
+          </tr>
+
+          <tr height="40">
+              <td>&nbsp;</td>
+          </tr>`;
         case "text":
           return `<p class="story-excerpt story-excerpt-link">${story.content}</p>`;
         case "html":
@@ -53,411 +128,229 @@ const renderElements = elements => {
 };
 
 function createHTML(data, cb) {
-  const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-  <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>${data.meta.subject}</title>
-    <style type="text/css">
-    .btn {
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-      -premailer-width: 100%;
-      width: 100%;
-    }
-    .btn > tr > td {
-      padding-bottom: 15px;
-    }
-    .btn table {
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-      -premailer-width: auto;
-      width: auto;
-    }
-    .btn table td {
-      background-color: #fff;
-      border-radius: 5px;
-      text-align: center;
-    }
-    .btn a {
-      background-color: #fff;
-      border: solid 1px #0070ff;
-      border-radius: 5px;
-      color: #0070ff;
-      cursor: pointer;
-      display: inline-block;
-      font-size: 14px;
-      font-weight: bold;
-      margin: 0;
-      padding: 12px 25px;
-      text-decoration: none;
-    }
-    .btn-primary table td {
-      background-color: #0070ff;
-    }
-    .btn-primary a {
-      background-color: #0070ff;
-      border-color: #0050dd;
-      color: #fff;
-    }
-    .btn-secondary table td {
-      background-color: transparent;
-    }
-    .btn-secondary a {
-      background-color: transparent;
-      border-color: #0070ff;
-      color: #0070ff;
-    }
-    .btn-twitter table td {
-      background-color: #55acee;
-    }
-    .btn-twitter a {
-      background-color: #55acee;
-      border-color: #55acee;
-      color: #fff;
-    }
-    .btn-facebook table td {
-      background-color: #3b5998;
-    }
-    .btn-facebook a {
-      background-color: #3b5998;
-      border-color: #3b5998;
-      color: #fff;
-    }
-    #outlook a {
-      padding: 0;
-    }
-    /* Force Outlook to provide a "view in browser" menu link. */
-    body {
-      width: 100% !important;
-      -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system,BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: #141823;
-      background-color: #ffffff;
-    }
-    /* Prevent Webkit and Windows Mobile platforms from changing default font sizes.*/
-    .ExternalClass {
-      width: 100%;
-    }
-    /* Force Hotmail to display emails at full width */
-    .ExternalClass,
-    .ExternalClass p,
-    .ExternalClass span,
-    .ExternalClass font,
-    .ExternalClass td,
-    .ExternalClass div {
-      line-height: 100%;
-    }
-    #backgroundTable {
-      margin: 0;
-      padding: 10px;
-      width: 100% !important;
-      line-height: 100% !important;
-    }
-    /* End reset */
-    body {
-      -webkit-font-smoothing: antialiased;
-      font-size: 14px;
-      height: 100% !important;
-      font-family:  -apple-system,BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
-    h1,
-    h2,
-    h3,
-    h4 {
-      color: #141823 !important;
-      font-family:  -apple-system,BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: bold;
-      line-height: 1.4em;
-      margin: 0;
-      margin-bottom: 6px;
-    }
-    h1 {
-      font-size: 38px;
-      font-weight: 300;
-    }
-    h2 {
-      font-size: 24px;
-    }
-    h3 {
-      font-size: 20px;
-    }
-    h4 {
-      font-size: 14px;
-      font-weight: 500;
-    }
-    p,
-    ul,
-    ol {
-      font-family:  -apple-system,BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      font-weight: normal;
-      margin: 0;
-      margin-bottom: 16px;
-      line-height: 24px;
-      color: #141823;
-    }
-    p li,
-    ul li,
-    ol li {
-      list-style-position: inside;
-      margin-left: 5px;
-    }
-    a {
-      color: #0070ff;
-      text-decoration: underline;
-    }
-    .purple {
-      color: #9C27B0;
-    }
-    .story-title {
-      text-decoration: none;
-      color: #141823;
-    }
-    .story-excerpt {
-      margin-bottom: 6px;
-    }
-    .story-excerpt-link {
-      text-decoration: none;
-      color: #595f6c;
-    }
-    .story-author {
-      margin-bottom: 36px;
-    }
-    .story-author-link {
-      text-decoration: none;
-    }
-    .story-author .more {
-      color: #595f6c;
-    }
-    .logo {
-      display: inline-block;
-      width: 272px;
-      margin: 12px auto;
-    }
-    .logo > img {
-      display: inline-block;
-      border: 0;
-      width: 100%;
-    }
-    .tagline {
-      display: block;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-top: 8px;
-      color: #0070ff;
-    }
-    .date {
-      color: #595f6c;
-      font-size: 14px;
-      text-transform: uppercase;
-      margin: 24px 0;
-      display: block;
-      letter-spacing: 0.08em;
-    }
-    .fine-print {
-      font-size: 11px;
-      color: #b7b7b7;
-      line-height: 1.1;
-      font-family:  -apple-system,BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
-    .fine-print a {
-      font-size: 11px;
-      line-height: 1.1;
-      color: #0070ff;
-    }
-    .follow {
-      margin-bottom: 36px;
-    }
-    .footer {
-      padding-bottom: 36px;
-    }
-    .preheader {
-      color: transparent;
-      display: none;
-      height: 0;
-      max-height: 0;
-      max-width: 0;
-      opacity: 0;
-      overflow: hidden;
-      mso-hide: all;
-      visibility: hidden;
-      width: 0;
-    }
-    hr {
-      background-color: #eee;
-      color: #eee;
-      border: 1px solid #eee;
-      margin: 48px auto;
-      width: 50px;
-    }
-    .hr-med {
-      background-color: #eee;
-      border: 1px solid #eee;
-      color: #eee;
-      margin: 24px auto;
-      width: 50px;
-    }
-    .hr-strong {
-      background-color: #555;
-      border: 3px solid #555;
-    }
-    .stamp {
-      font-size: 20px;
-      margin: 48px auto;
-      text-align: center;
-    }
-    ul {
-      margin-left: 0 !important;
-      padding-left: 0 !important;
-    }
-    li {
-      padding-left: 0;
-      margin-left: 0 !important;
-    }
-    .bodyImage {
-      height: auto !important;
-      max-width: 498px !important;
-      width: 100% !important;
-      margin-bottom: 16px;
-    }
-    @media only screen and (max-width: 480px) {
-      .bodyImage {
-        height: auto !important;
-        max-width: 498px !important;
-        width: 100% !important;
-        margin-bottom: 16px;
-      }
-    }
-    .listItem--first {
-      margin-bottom: 16px;
-    }
-    .text3-pretty {
-      font-family: Georgia, serif;
-      font-style: italic;
-      font-size: 24px;
-      color: #999;
-    }
-    .padding-all-sm {
-      padding: 0 12px 24px;
-    }
-    .margin-micro {
-      padding-bottom: 6px;
-    }
-    .margin-small {
-      padding-bottom: 12px;
-    }
-    .margin-med {
-      padding-bottom: 24px;
-    }
-    .margin-big {
-      padding-bottom: 36px;
-    }
-    .border {
-      border: 1px solid #eee;
-    }
-    .text-center {
-      text-align: center;
-    }
-    .text-left {
-      text-align: left;
-    }
-    .lead {
-      font-size: 15px;
-      line-height: 20px;
-      font-weight: 400;
-      color: #595f6c;
-    }
-    .schedule-title {
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: -1px;
-      padding: 36px 0 12px;
-      line-height: 32px;
-    }
-    .schedule-day {
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #7f7f7f;
-      padding: 24px 0 12px;
-    }
-    .schedule-event-title {
-      font-weight: bold;
-      padding-bottom: 4px;
-      line-height: 1.2;
-    }
-    .schedule-event-title a {
-      text-decoration: none;
-      color: #000;
-    }
-    .schedule-event-time {
-      font-weight: 400;
-      font-size: 13px;
-      padding: 0 0 12px;
-      color: #999999;
-    }
-    sup {
-      font-size: 8px;
-    }
-    .heading {
-      text-align: center;
-    }
-    </style>
-  </head>
-  <body>
-    <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable">
-      <tbody>
-        <tr>
-          <td width="500" valign="top">
-            <table cellpadding="0" cellspacing="0" border="0" align="center">
-              <tbody>
-                <tr>
-                  <td width="498" class="container" valign="top">
-                    <table>
-                    </table>
-                      <span class="preheader">${data.meta.preheader}</span>
-                      <table cellpadding="0" cellspacing="0" border="0" align="center">
-                        <tr>
-                          <td width="498" class="container" align="center">
-                            <h1><a class="logo" href="https://criciumadev.com.br/">
-                              <img src="https://criciumadev.com.br/assets/images/logo-criciuma-dev-dark.svg" alt="Criciúma DEV" />
-                            </a></h1>
-                            <p class="tagline">Comunidade de desenvolvedores do Sul de Santa Catarina</p>
-                            <p class="date">${moment(data.meta.date, moment.ISO_8601).format("dddd, MMMM D, YYYY")}</p>
-                          </td>
-                        </tr>
-                      </table>
-                      <table class="main">
-                        <tr>
-                          <td class="wrapper">
-                            <table>
-                              <tr>
-                                <td>
-                                 ${renderElements(data.elements)}
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
+  const html = `<!DOCTYPE html>
+    <html>
+        <head>
+            <title>${data.meta.subject}</title>
+            <style type="text/css">
+                * {
+                    margin: 0;
+                    padding: 0;
+                }
+            </style>
+        </head>
+        <body>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" bgcolor="#eaeced">
+                <tbody>
+                    <tr height="30">
+                    </tr>
+                    <tr height="8" style="font-size:0;line-height:0">
+                        <td>&nbsp;</td>
+                    </tr>
 
-                  </td>
-                </tr>
-              </tbody>
+                    <tr>
+                        <td align="center" valign="top">
+                            <table width="600">
+
+                                <tbody>
+                                    <tr>
+                                        <td align="center">
+                                            <table width="570" border="0" cellpadding="0" cellspacing="0" valign="top">
+                                                <tbody>
+                                                    <tr>
+
+                                                        <td width="50">
+                                                            <a href="https://criciumadev.com.br" target="_blank">
+                                                                <img src="https://email.criciumadev.com.br/base/logo-criciuma-dev.png?2" height="50" alt="Criciúma Dev" style="border:0">
+                                                            </a>
+                                                        </td>
+                                                        <td style="font-family:'Open Sans',arial,sans-serif!important;font-size:13px!important;line-height:50px!important;font-weight:400!important;color:#7e8890!important;text-transform:uppercase!important" align="right">${moment(data.meta.date, moment.ISO_8601).format("dddd, D [de] MMMM, YYYY")}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr height="40">
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <!-- HEAD -->
+                                    <tr>
+                                        <td align="center" valign="top">
+                                            <table width="580" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" valign="top" style="overflow:hidden!important;border-radius:3px">
+                                                <tbody>
+                                                    <!-- <tr>
+                                                        <td>
+                                                            <a href="" target="_blank">
+                                                                <img src="" width="580" style="border:0;max-width:100%!important">
+                                                            </a>
+                                                        </td>
+                                                    </tr> -->
+                                                    <tr height="40">
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td align="center">
+                                                            <table width="85%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td align="center">
+                                                                            <h2 style="margin:0!important;font-family:'Open Sans',arial,sans-serif!important;font-size:28px!important;line-height:38px!important;font-weight:200!important;color:#252b33!important">${data.meta.subject}</h2>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr height="25">
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td align="center">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="85%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td align="center" style="font-family:'Open Sans',arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:400!important;color:#7e8890!important">${data.meta.preheader}</td>
+                                                                        <td align="center" style="font-family:'Open Sans',arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:400!important;color:#7e8890!important">Sugira conteúdo usando nosso <a style="text-decoration: none;font-family:'Open Sans',arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:400!important;color:#1591FF!important" href="https://slack.criciumadev.com.br" target="_blank">Slack no channel #newsletter</a> :)</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr height="40">
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr height="40">
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <!-- /// -->
+
+                                    <!-- CONTENT -->
+                                    ${renderElements(data.elements)}
+                                    <!-- /// -->
+
+                                    <tr>
+                                        <td align="center">
+                                            <table width="580" border="0" cellpadding="0" cellspacing="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td>
+                                                    <div style="width:22.37%;float:left;display:inline">
+                                                      <table bgcolor="#46a9e3" border="0" cellpadding="0" cellspacing="0" width="100%" height="50" style="border-radius:3px!important">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td align="center" valign="middle">
+                                                              <a href="https://twitter.com/criciumadev" target="_blank" style="line-height:50px;display:block;text-decoration:none!important;width:100%">
+                                                              <img src="https://email.criciumadev.com.br/base/twitter.png" width="15" height="13" alt="Nos siga no Twitter" class="CToWUd">
+                                                              <span style="text-decoration:none"> </span>
+                                                              <span style="font-family:'Open Sans',arial,sans-serif!important;font-size:12px!important;color:#fefefe!important;border-radius:3px!important;text-decoration:none!important;font-weight:400!important">Twitter</span>
+                                                              </a>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                    <div style="width:3.5%;min-height:50px;float:left;display:inline"></div>
+                                                    <div style="width:22.37%;float:left;display:inline">
+                                                      <table bgcolor="#36549d" border="0" cellpadding="0" cellspacing="0" width="100%" height="50" style="border-radius:3px!important">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td align="center" valign="middle">
+                                                              <a href="https://www.facebook.com/criciumadev" style="line-height:50px;display:block;text-decoration:none!important;width:100%" target="_blank">
+                                                              <img src="https://email.criciumadev.com.br/base/facebook.png" style="border:0;display:inline-block;vertical-align:middle" width="8" height="15" alt="Facebook">
+                                                              <span style="text-decoration:none"> </span>
+                                                              <span style="font-family:'Open Sans',arial,sans-serif!important;font-size:12px!important;color:#fefefe!important;border-radius:3px!important;text-decoration:none!important;font-weight:400!important">Facebook</span>
+                                                              </a>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                    <div style="width:3.5%;min-height:50px;float:left;display:inline"></div>
+                                                    <div style="width:22.37%;float:left;display:inline">
+                                                      <table bgcolor="#02B875" border="0" cellpadding="0" cellspacing="0" width="100%" height="50" style="border-radius:3px!important">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td align="center" valign="middle">
+                                                              <a href="http://slack.criciumadev.com.br" style="line-height:50px;display:block;text-decoration:none!important;width:100%" target="_blank">
+                                                              <img src="https://email.criciumadev.com.br/base/slack.png" style="border:0;display:inline-block;vertical-align:middle" width="24" height="24" alt="Nosso Slack">
+                                                              <span style="text-decoration:none"> </span>
+                                                              <span style="font-family:'Open Sans',arial,sans-serif!important;font-size:12px!important;color:#fefefe!important;border-radius:3px!important;text-decoration:none!important;font-weight:400!important">Nosso Slack</span>
+                                                              </a>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                    <div style="width:3.5%;min-height:50px;float:left;display:inline"></div>
+                                                    <div style="width:22.37%;float:left;display:inline">
+                                                      <table bgcolor="#CD201F" border="0" cellpadding="0" cellspacing="0" width="100%" height="50" style="border-radius:3px!important">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td align="center" valign="middle">
+                                                              <a href="https://www.youtube.com/channel/UC5rQV1_PbC_hYxaiT78lbhg" style="line-height:50px;display:block;text-decoration:none!important;width:100%" target="_blank">
+                                                              <img src="https://email.criciumadev.com.br/base/youtube.png" style="border:0;display:inline-block;vertical-align:middle" width="19" height="14.29" alt="Canal no YouTube">
+                                                              <span style="text-decoration:none"> </span>
+                                                              <span style="font-family:'Open Sans',arial,sans-serif!important;font-size:12px!important;color:#fefefe!important;border-radius:3px!important;text-decoration:none!important;font-weight:400!important">YouTube</span>
+                                                              </a>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr height="58">
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td align="center">
+                                            <table width="580" border="0" cellpadding="0" cellspacing="0" valign="top">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <a href="{unsubscribe}" style="font-family:Open Sans,sans-serif!important;font-size:12px!important;color:#7e8890!important;text-decoration:underline!important" target="_blank">Descadastrar desta lista de emails</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr height="21" style="padding:0;margin:0;font-size:0;line-height:0">
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top" align="center">
+                                                            <p style="margin-bottom:1em;font-family:Open Sans,sans-serif!important;padding:0!important;margin:0!important;color:#7e8890!important;font-size:12px!important;font-weight:300!important"><span><span>{accountcompany}</span>, {accountaddress1}, {accountcity}, {accountstate} / {accountcountry} | {accountzip}</span>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr height="38">
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <table>
-    </table>
-  </body>
-  </html>`;
+        </body>
+    </html>`;
   cb(html);
 }
 
