@@ -325,14 +325,6 @@ function createHTML(data, cb) {
                                             <table width="580" border="0" cellpadding="0" cellspacing="0" valign="top">
                                                 <tbody>
                                                     <tr>
-                                                        <td align="center">
-                                                            <a href="{unsubscribe}" style="font-family:Open Sans,sans-serif!important;font-size:12px!important;color:#7e8890!important;text-decoration:underline!important" target="_blank">Descadastrar desta lista de emails</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr height="21" style="padding:0;margin:0;font-size:0;line-height:0">
-                                                        <td>&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
                                                         <td valign="top" align="center">
                                                             <p style="margin-bottom:1em;font-family:Open Sans,sans-serif!important;padding:0!important;margin:0!important;color:#7e8890!important;font-size:12px!important;font-weight:300!important"><span><span>{accountcompany}</span>, {accountaddress1}, {accountcity}, {accountstate} / {accountcountry} | {accountzip}</span>
                                                             </p>
