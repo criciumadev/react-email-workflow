@@ -3,7 +3,8 @@ export const url = {
   title: "",
   url: "",
   content: "",
-  author: ""
+  author: "",
+  image: ""
 };
 
 export const html = {

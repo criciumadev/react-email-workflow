@@ -18,7 +18,7 @@ class Url extends Component {
   }
 
   render() {
-    const { id, title, content, author, url, edit, extract } = this.props;
+    const { id, title, content, author, image, url, edit, extract } = this.props;
     return (
       <Block>
         <Row>
@@ -42,6 +42,7 @@ class Url extends Component {
             <Row margin=".5rem 0">
               <Input
                 style={{
+                  placeholder: "Título",
                   flex: 1,
                   fontWeight: "bold",
                   color: "#141823",
@@ -55,6 +56,7 @@ class Url extends Component {
             </Row>
             <Row marginBottom=".5rem">
               <Input
+                placeholder={"Conteúdo"}
                 style={{
                   flex: 1,
                   color: "#595f6c",
@@ -68,6 +70,7 @@ class Url extends Component {
             </Row>
             <Row marginBottom=".25rem">
               <Input
+                placeholder={"Categoria"}
                 style={{
                   flex: 1,
                   color: "#595f6c",
@@ -76,6 +79,19 @@ class Url extends Component {
                 }}
                 onChange={e => edit(id, { author: e.target.value })}
                 value={author}
+              />
+            </Row>
+            <Row marginBottom=".25rem">
+              <Input
+                placeholder={"Imagem menor"}
+                style={{
+                  flex: 1,
+                  color: "#595f6c",
+                  fontSize: "16px",
+                  lineHeight: "24px"
+                }}
+                onChange={e => edit(id, { image: e.target.value })}
+                value={image}
               />
             </Row>
           </Block>

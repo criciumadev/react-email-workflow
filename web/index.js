@@ -66,7 +66,7 @@ function api(__DEV__) {
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <title>React Email Workflow</title>
+          <title>Newsletter Generator</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content="React Email Workflow" />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">

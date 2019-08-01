@@ -19,7 +19,7 @@ class Meta extends Component {
       >
         <Block width="100%" marginBottom=".5rem">
           <Input
-            placeholder="Newsletter do Criciúma Dev / Edição #1"
+            placeholder="Assunto"
             value={metaData.subject}
             onChange={e => meta({ subject: e.target.value })}
             style={{
@@ -29,11 +29,37 @@ class Meta extends Component {
             }}
           />
         </Block>
+        <Block width="100%" marginBottom=".5rem">
+          <Input
+            placeholder="Quinta-feira, 27 de Junho de 2019"
+            value={metaData.date}
+            onChange={e => meta({ date: e.target.value })}
+            style={{
+              width: "100%",
+              fontWeight: "bold",
+              color: "#141823"
+            }}
+          />
+        </Block>
+        <Block>
+          <Input
+            rows={2}
+            onChange={e => meta({ header: e.target.value })}
+            placeholder="CD Weekly | Edição #21"
+            value={metaData.header}
+            style={{
+              width: "100%",
+              color: "#595f6c",
+              fontSize: "14px",
+              boxSizing: "border-box"
+            }}
+          />
+        </Block>
         <Block marginBottom=".5rem">
           <Input
             rows={2}
             onChange={e => meta({ preheader: e.target.value })}
-            placeholder="Guia prático de expressões regulares, Big Data Experience e mais..."
+            placeholder="Descrição"
             value={metaData.preheader}
             style={{
               width: "100%",
@@ -43,13 +69,18 @@ class Meta extends Component {
             }}
           />
         </Block>
-        <Block>
+        <Block marginBottom=".5rem">
           <Input
-            id="date"
-            type="date"
-            value={metaData.date}
-            onChange={e => meta({ date: e.target.value })}
-            style={{ width: "100%", margin: 0, flex: 1 }}
+            rows={2}
+            onChange={e => meta({ indicated: e.target.value })}
+            placeholder="Colaboraram nesta edição: Lucas Fereira, Mateus, Pedro e Luiz"
+            value={metaData.indicated}
+            style={{
+              width: "100%",
+              color: "#595f6c",
+              fontSize: "14px",
+              boxSizing: "border-box"
+            }}
           />
         </Block>
       </Block>

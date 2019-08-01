@@ -14,9 +14,9 @@ export function premailCopy() {
 export function premail() {
   return (dispatch, getState, { axios }) => {
     dispatch({ type: PREMAIL_REQUEST });
-    const { subject, preheader, date, meta, elements } = getState();
+    const { subject, date, header, preheader, indicated, meta, elements } = getState();
     return axios
-      .post("/api/v0/premail", { subject, preheader, date, meta, elements })
+      .post("/api/v0/premail", { subject, date, header, preheader, indicated, meta, elements })
       .then(res => {
         dispatch({
           type: PREMAIL_SUCCESS,

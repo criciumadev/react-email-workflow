@@ -7,7 +7,7 @@ http.globalAgent.maxSockets = Infinity;
 
 const web = require("./web");
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 const __DEV__ = process.env.NODE_ENV === "development";
 

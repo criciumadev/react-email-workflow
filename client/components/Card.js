@@ -98,6 +98,7 @@ class Card extends Component {
                   title={card.title}
                   content={card.content}
                   author={card.author}
+                  image={card.image}
                   url={card.url}
                   edit={edit}
                   extract={extract}

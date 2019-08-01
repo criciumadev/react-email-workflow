@@ -69,7 +69,8 @@ export function extract(id, url) {
           edit(id, {
             title: error.message,
             content: "",
-            author: "ERROR"
+            author: "ERROR",
+            image: ""
           })
         );
       });

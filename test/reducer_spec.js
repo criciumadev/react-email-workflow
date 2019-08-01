@@ -28,6 +28,7 @@ describe("reducer", () => {
         title: "",
         url: "",
         content: "",
+        image: "",
         author: ""
       }
     ];
@@ -42,6 +43,7 @@ describe("reducer", () => {
         title: "Hello!",
         url: "",
         content: "",
+        image: "",
         author: ""
       }
     ]);
@@ -55,6 +57,7 @@ describe("reducer", () => {
         title: "",
         url: "",
         content: "",
+        image: "",
         author: ""
       }
     ];
@@ -103,13 +106,18 @@ describe("reducer", () => {
   it("should handle EDIT_META", () => {
     const initialState = {
       subject: "",
+      date: "",
+      header: "",
       preheader: "",
+      indicated: "",
       date: ""
     };
     const nextState = meta(initialState, actions.meta({ subject: "Hello" }));
     expect(nextState).toEqual({
       subject: "Hello",
+      date: "Hello",
       preheader: "",
+      indicated: "",
       date: ""
     });
   });

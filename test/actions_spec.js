@@ -15,6 +15,7 @@ describe("actions", () => {
         title: "",
         url: "",
         content: "",
+        image: ""
         author: ""
       }
     };

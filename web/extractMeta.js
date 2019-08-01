@@ -19,7 +19,7 @@ function extractMeta(url, reply) {
           data.description ||
           "Error: Unable to scrape description from the provided url. You'll have to do this on your own.",
         author: data.publisher || "Unable to scrape author.",
-        image: data.image || "",
+        image: data.image || ""
       };
       cache.put(url, payload, TWENTY_FOUR_HOURS);
       logger.log(Object.assign({}, { type: "info" }, payload));

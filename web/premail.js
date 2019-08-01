@@ -19,9 +19,9 @@ router.post("/", getHTML, (req, res, next) => {
 });
 
 function getHTML(req, res, next) {
-  const { subject, preheader, date, meta, elements } = req.body;
+  const { subject, date, header, preheader, indicated, meta, elements } = req.body;
 
-  createHTML({ subject, preheader, date, meta, elements }, html => {
+  createHTML({ subject, date, header, preheader, indicated, meta, elements }, html => {
     res.locals.data = { html: juice(html, { removeStyleTags: false }) };
     next();
   });

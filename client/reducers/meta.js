@@ -4,7 +4,10 @@ import update from "react/lib/update";
 export default function meta(
   state = {
     subject: "",
+    date: "",
+    header: "",
     preheader: "",
+    indicated: "",
     date: new Date()
   },
   action
