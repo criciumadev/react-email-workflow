@@ -17,18 +17,18 @@ const renderElements = elements => {
               </a>
             </td>
             <td>
-              <a href="${story.url}?utm_source=newsletter&utm_medium=email" target="_blank" style="text-decoration: none;">
-                <div data-slot="text" style="font-family: 'Proxima Nova','Roboto',Helvetica;font-weight: 600;font-size: 12px;line-height: 13px;color: #858585;text-transform: uppercase;">
+                <a href="${story.url}?utm_source=newsletter&utm_medium=email" target="_blank" style="font-family: 'Proxima Nova','Roboto',Helvetica;font-weight: 600;font-size: 12px;line-height: 13px;color: #858585;text-transform: uppercase;text-decoration: none;">
                   ${story.author}
-                </div>
-                <div style="color: #4a4a4a;font-family: 'Proxima Nova','Roboto',Helvetica;font-size: 20px;line-height: 22px;font-weight: 600;padding-bottom: 10px;padding-top: 5px;padding-right: 30px;">
+                </a>
+                <br>
+                <a href="${story.url}?utm_source=newsletter&utm_medium=email" target="_blank" style="color: #4a4a4a;font-family: 'Proxima Nova','Roboto',Helvetica;font-size: 20px;line-height: 22px;font-weight: 600;padding-bottom: 10px;padding-top: 5px;padding-right: 30px; text-decoration: none;">
                   ${story.title}
-                </div>
+                </a>
+                <br><br>
                 <img class="hidden-lg" width="100%" src="${story.image}" alt="${story.title}" style="margin: 0 0 10px; border-radius: 4px;" />
-                <div data-slot="text" style="color: #4A4A4A;font-family: 'Proxima Nova', 'Roboto', Helvetica;font-size: 16px;line-height: 22px;">
+                <a href="${story.url}?utm_source=newsletter&utm_medium=email" target="_blank" style="color: #4A4A4A;font-family: 'Proxima Nova', 'Roboto', Helvetica;font-size: 16px;line-height: 22px; text-decoration: none;">
                   ${story.content}
-                </div>
-              </a>
+                </a>
             </td>
             </tr>
 
