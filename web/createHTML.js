@@ -114,9 +114,9 @@ function createHTML(data, cb) {
     <table width="100%" bgcolor="#F5F5F5">
       <tbody>
         <tr>
-          <td style="padding: 30px 5px;">
+          <td style="padding: 30px 5px 0;">
             <center>
-              <table width="100%" style="max-width: 604px;">
+              <table width="100%" style="max-width: 580px;">
                 <tbody>
 
                   <!-- Header -->
@@ -196,6 +196,45 @@ function createHTML(data, cb) {
                                 </tbody>
                               </table>
 
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                    </td>
+                  </tr>
+
+                  <tr data-section-wrapper="1" style="margin: 0; padding: 0;">
+                    <td colspan="2" style="margin: 0; padding: 30px 0 0;">
+
+                      <table width="100%" bgcolor="#FFFFFF" style="margin: 0; padding: 0; border-bottom: 1px solid #DDDDDD; border-collapse: collapse;">
+                        <tbody style="margin: 0; padding: 0;">
+                          <tr style="margin: 0; padding: 0;">
+
+                            <td colspan="2" style="margin: 0; padding: 38px 21px;">
+                              <div style="margin: 0; padding: 0; font-family: 'Proxima Nova','Roboto',Helvetica; font-weight: 500; font-size: 17px; line-height: 22px; color: #333333; font-weight: 600;">
+                                Quem apoia o Criciúma Dev:
+                              </div>
+
+                              <br><br>
+
+                              <table width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td style="padding-bottom:25px;" align="center"><a title="Domínio Thomson Reuters" href="http://www.dominiosistemas.com.br"><img height="37px" src="https://email.criciumadev.com.br/new-newsletter/banner/tr.png" alt="Domínio Thomson Reuters"></a></td>
+                                    <td style="padding-bottom:25px;" align="center"><a title="SATC" href="http://www.site.satc.edu.br"><img src="https://email.criciumadev.com.br/new-newsletter/banner/satc.png" alt="SATC"></a></td>
+                                  </tr>
+                                  <tr>
+                                    <td style="padding-bottom:25px;" align="center"><a title="Useall" href="http://www.useall.com.br"><img src="https://email.criciumadev.com.br/new-newsletter/banner/useall.png" alt="Useall"></a></td>
+                                    <td style="padding-bottom:25px;" align="center"><a title="Quinto Andar" href="https://www.quintoandar.com.br"><img height="30px" src="https://email.criciumadev.com.br/new-newsletter/banner/quintoandar.png" alt="Quinto Andar"></a></td>
+                                  </tr>
+                                  <tr>
+                                    <td align="center"><a title="Simples Dental" href="https://www.simplesdental.com"><img height="35px" src="https://email.criciumadev.com.br/new-newsletter/banner/simplesdental.png" alt="Simples Dental"></a></td>
+                                    <td align="center"><a title="Plurall Coworking" href="https://plurallcw.com.br"><img src="https://email.criciumadev.com.br/new-newsletter/banner/plurall.png" alt="Plurall Coworking"></a></td>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
                             </td>
                           </tr>
                         </tbody>
